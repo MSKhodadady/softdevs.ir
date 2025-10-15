@@ -2,7 +2,8 @@ const express = require("express");
 const path = require("path");
 
 const app = express();
-const PORT = 3000;
+const _port = Number(process.env.PORT);
+const PORT = isNaN(_port) ? 3000 : _port;
 
 // Set EJS as view engine
 app.set("view engine", "ejs");
