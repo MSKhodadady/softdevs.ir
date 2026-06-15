@@ -6,14 +6,22 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
-    "style": "npx @tailwindcss/cli -i ./public/input.css -o ./public/style.css --watch"
+    "start:dev": "node --watch app.js",
+    "style": "npx @tailwindcss/cli -i ./public/input.css -o ./public/style.css --watch",
+    "dev": "concurrently --names app,style -c blue,green 'npm run start:dev' 'npm run style' "
   },
   "author": "m.s.khodadadei@gmail.com",
   "license": "MIT",
   "dependencies": {
     "@tailwindcss/cli": "^4.1.14",
+    "dotenv": "^17.4.2",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
+    "mysql2": "^3.22.5",
     "tailwindcss": "^4.1.14"
+  },
+  "devDependencies": {
+    "@types/concurrently": "^6.4.0",
+    "concurrently": "^10.0.3"
   }
 }

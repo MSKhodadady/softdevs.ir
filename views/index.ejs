@@ -126,7 +126,7 @@
             <li>مشورت و دموکراسی بین اعضا</li>
             <li>قانون مداری</li>
             <li>تعامل سازنده با کارفرمایان</li>
-            <li>مبارزه مدنی و دموکراتیک و به دور از حاشیه با ناقضین حقوق</li>
+            <li>برخورد مدنی و دموکراتیک و به دور از حاشیه با ناقضین حقوق</li>
           </ul>
         </section>
 
@@ -138,7 +138,6 @@
               حمایت از حقوق افراد استخدام شده یا کارآموز در شرکت های مختلف.
             </li>
             <li>کمک به شرکت ها جهت جذب نیروهای مناسب نیاز شرکت.</li>
-            <li>بررسی کیفیت آموزش های برنامه نویسی.</li>
           </ul>
         </section>
         <p>
@@ -208,11 +207,62 @@
 
       <br />
 
-      <article class="text-center text-lg">
-        <p>
-          برای ارتباط با انجمن، درخواست راهنمایی، ثبت نام در انجمن و ... از راه
-          های زیر در ارتباط باشید:
-        </p>
+      <hr class="w-full my-4" />
+
+      <section class="w-full max-w-lg">
+        <h2 class="text-xl font-bold mb-4 text-center">فرم ارتباط با انجمن</h2>
+
+        <!-- ✅ Success Message Condition -->
+        <% if (typeof success !== 'undefined' && success) { %>
+        <div
+          class="bg-green-100 text-green-800 p-4 rounded mb-4 text-center border border-green-200"
+        >
+          پیام شما با موفقیت ثبت شد!
+        </div>
+        <% } %>
+
+        <form action="/messages" method="POST" class="flex flex-col gap-4">
+          <input
+            type="text"
+            name="name"
+            placeholder="نام و نام خانوادگی (حداقل ۳ حرف)"
+            required
+            minlength="3"
+            class="border p-2 rounded"
+          />
+
+          <input
+            type="tel"
+            name="phone"
+            placeholder="شماره تماس (مثال: 09123456789)"
+            required
+            pattern="^(\+98|0)?9\d{9}$"
+            title="لطفا یک شماره موبایل معتبر ایران وارد کنید"
+            class="border p-2 rounded"
+          />
+
+          <textarea
+            name="message"
+            placeholder="پیام شما (حداقل ۵ حرف)"
+            required
+            minlength="5"
+            rows="4"
+            class="border p-2 rounded"
+          ></textarea>
+
+          <button
+            type="submit"
+            class="bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
+          >
+            ارسال پیام
+          </button>
+        </form>
+      </section>
+
+      <hr class="w-full my-4" />
+
+      <article class="text-center text-lg w-full">
+        <p>دیگر راه های ارتباطی</p>
 
         <a
           href="mailto:m.s.khodadadei@gmail.com"
